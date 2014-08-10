@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Index - Learning Knockout</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <h1 class="doc-title">Learning Knockout</h1>
+        <div class="grid-a">
+            <div class="row">
+                <div class="block-a">
+                    <h2>Exploring Knockout with examples</h2>
+                    <ul>
+                        <li>
+                            <a href="view/observableInput/">Observable Input</a>
+                        </li>
+                        <li>
+                            <a href="view/computedObservable/">Computed Observable</a>
+                        </li>
+                        <li>
+                            <a href="view/observableArray/">Observable Array</a>
+                        </li>
+                        <li>
+                            <a href="view/helloWorldInlineTemplate/">Hello World Inline Template</a>
+                        </li>
+                        <li>
+                            <a href="view/inlineTemplate/">Inline Template</a>
+                        </li>
+                        <li>
+                            <a href="view/helloWorldExternalTemplate/">Hello World External Template</a>
+                        </li>
+                        <li>
+                            <a href="view/externalTemplate/">External Template</a>
+                        </li>
+                    </ul>
+                    <hr />
+                </div>
+                <div class="block-b">
+                    <h2>notes on Knockout</h2>
+                    <ul>
+                        <li>
+                            Unless and until, observables are defined in js and "ko.applyBindings" is invoked, two-way binding doesn't happen
+                        </li>
+                        <li>
+                        Two-way binding occurs only for input, textarea elements from DOM. A div element with "contenteditable" attribute set to true will not auto update
+                        </li>
+                        <li>
+                            ko template's require that template name be enclosed in quotes, if templates are inline
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>External Template</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">External Template</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <div data-bind="template: { name:'externalTemplate', data: article }">
+            </div>
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+            // since data is already available in inlineTemplate.js, we are reusing it
+            require(["inlineTemplate"], function(novalue) {
+
+            });
+        });
+    </script>
+</body>
+
+</html>

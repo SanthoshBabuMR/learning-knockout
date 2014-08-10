@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Computed Observable</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Computed Observable</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <div class="grid-a">
+                <div class="row">
+                    <div class="block-a">
+                        <label for="fname">First Name: </label>
+                    </div>
+                    <div class="block-b">
+                        <input type="text" id="fname" name="fname" data-bind="value:firstName" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="block-a">
+                        <label for="lname">Last Name: </label>
+                    </div>
+                    <div class="block-b">
+                        <input type="text" id="lname" name="lname" data-bind="value:lastName" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="block-a">
+                        <label>Full Name: </label>
+                    </div>
+                    <div class="block-b">
+                        <span data-bind="text:fullName"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+            // since data is already available in inlineTemplate.js, we are reusing it
+            require(["computedObservable"], function(novalue) {
+
+            });
+        });
+    </script>
+</body>
+
+</html>

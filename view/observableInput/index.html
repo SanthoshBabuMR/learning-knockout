@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Observable Input</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+<body>
+    <div class="doc-wrap">
+        <a href="/">Home</a>
+        <h1 class="doc-title">Observable Input</h1>
+        <div class="bind-to-node">
+            <label> Enter First Name:
+                <input type="text" id="fname" name="fname" data-bind="value: firstName" />
+            </label>
+            <small>focus out of the input, to see the change</small>
+            <p>
+                Name: <span data-bind="text:firstName" contenteditable="true"></span>
+            </p>
+        </div>
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+	<script>
+		require( ["/public/script/config/requireConfig.js"], function( ) {
+			require( ["observableInput"], function( novalue ){
+                
+            } );
+		} );
+	</script>
+</body>
+
+</html>

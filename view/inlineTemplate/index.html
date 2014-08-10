@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Inline Template</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Inline Template</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            
+            <!--<span data-bind="text:speak.greet"></span>-->
+            <article>
+                <h2>Article</h2>
+                <div data-bind="template: { name: 'myArticle', data: wikiArticle}"></div>
+                <script type="text/html" id="myArticle">
+                    <article>
+                        <h2 data-bind="text:title"></h2>
+                        <div data-bind="html:content">                            
+                        </div>
+                    </article>
+                </script>
+            </article>
+            <!-- bind-to-node end-->
+        </div>
+        <hr />
+        <div class="bind-to-node2">
+            <!-- bind-to-node begin-->
+            
+            <article>
+                <h2>Weather Forecast ( using foreach )</h2>
+                <div class="grid-a" data-bind="template: { name: 'weatherForecast', foreach: forecast}"></div>
+                <script type="text/html" id="weatherForecast">                    
+                    <div class="row">
+                        <div class="block-a">
+                            <span data-bind="text: city"></span>
+                        </div>
+                        <div class="block-b">
+                            <span data-bind="text: weather"></span>
+                        </div>
+                    </div>
+                </script>
+            </article>
+            <!-- bind-to-node end-->
+        </div>
+        <hr />
+        <div class="bind-to-node3">
+            <!-- bind-to-node begin-->
+            <article>
+                <h2>Season Template</h2>
+                <ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' }"></ul>
+     
+                <script type="text/html" id="seasonTemplate">
+                    <li>
+                        <strong data-bind="text: name"></strong>
+                        <ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+                    </li>
+                </script>
+                 
+                <script type="text/html" id="monthTemplate">
+                    <li>
+                        <span data-bind="text: month"></span>
+                        is in
+                        <span data-bind="text: season.name"></span>
+                    </li>
+                </script>
+            </article>
+            <!-- bind-to-node end-->
+        </div>
+
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+            require(["inlineTemplate"], function(novalue) {
+
+            });
+        });
+    </script>
+</body>
+
+</html>

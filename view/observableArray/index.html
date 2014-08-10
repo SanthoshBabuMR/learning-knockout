@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Observable Array</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Observable Array</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <h2>Days in a week</h2>
+            <ul data-bind="foreach:arr">
+                <li data-bind="text:$data"></li>
+            </ul>
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+            // since data is already available in inlineTemplate.js, we are reusing it
+            require(["observableArray"], function(novalue) {
+
+            });
+        });
+    </script>
+</body>
+
+</html>
