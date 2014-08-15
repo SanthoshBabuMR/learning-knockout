@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fiddling With Template</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Fiddling With Template</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <section>  
+                <h2>Participants</h2>
+                <p>Here are the participants</p>
+                <h3>Buyer Details:</h3>
+                <div data-bind="template: { name: 'personTemplate', data: buyer, afterRender: prodDetails }"></div>
+                <h3>Seller Details:</h3>
+                <div data-bind="template: { name: 'personTemplate', data: seller }"></div>
+
+                <script type="text/html" id="personTemplate">
+                    <h3 data-bind="text:name"></h3>
+                    <p>Credits: <span data-bind="text:credits"></span></p>
+                </script>
+            </section>
+            <hr />
+            <!-- bind-to-node end-->
+        </div>
+
+        <div class="bind-to-node2">
+            <!-- bind-to-node2 begin-->
+            <section>  
+                <h2>Seasons</h2>
+                <ul data-bind="foreach:seasons">
+                    <li>
+                        <span data-bind="text:name"></span>
+                        <ul data-bind="foreach:months">
+                            <li> <span data-bind="text:$data"></span> comes in <span data-bind="text:$parent.name"></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section> 
+            <hr />
+            <!-- bind-to-node2 end-->
+        </div> 
+
+        <div class="bind-to-node3">
+            <!-- bind-to-node3 begin-->
+            <section>  
+                <h2>Eligibility</h2>
+                <fieldset>
+                    <legend>My age is:</legend>
+                    <label> less than 21 <input type="radio" value="NO" data-bind="checked: eCheck" /> </label>
+                    <label> greater than 21 <input type="radio" value="YES" data-bind="checked: eCheck" /> </label>
+                </fieldset>
+                <div data-bind="template: {name: displayMode() }"></div>
+                <script type="text/html" id="templateEligibilityundefined">
+                    <p>
+                        Check eligiblity, by selecting your age criteria
+                    </p>
+                </script>
+                <script type="text/html" id="templateEligibilityYES">
+                    <p>
+                        you are eligible for voting
+                    </p>
+                </script>
+                <script type="text/html" id="templateEligibilityNO">
+                    <p>
+                        you are not eligible for voting
+                    </p>
+                </script>
+            </section>
+            <hr />
+            <!-- bind-to-node3 end-->
+        </div> 
+        
+        
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+
+            require( [ "knockout", "jquery", "underscore" ], function( ko, $, _ ) {
+                var buyerObject = {
+                    buyer : {
+                        name: "Kalyan",
+                        credits: 160
+                    }                    
+                }
+                var SellerConstructor = function( n, c) {
+                    this.seller = {};
+                    this.seller.name = n;
+                    this.seller.credits = c || 100;
+                }
+                var sellerObject = new SellerConstructor( "Texmo" );
+                ko.applyBindings( _.extend( {}, buyerObject, sellerObject, {
+                    prodDetails: function( ele, obj ) {
+                            //console.log( window.args = arguments );
+                        }
+                } ), $(".bind-to-node")[0] );
+
+                var Climate = {
+                    "seasons": [
+                                {
+                                    name: "Spring",
+                                    months: [ "March", "April", "May" ]
+                                },
+                                {
+                                    name: "Summer",
+                                    months: [ "June", "July", "August" ]
+                                },
+                                {
+                                    name: "Autumn",
+                                    months: [ "September", "October", "Novembter" ]    
+                                },
+                                {
+                                    name: "Winter",
+                                    months: [ "December", "January", "February"]
+                                }
+                            ]
+                };
+                ko.applyBindings( Climate, $(".bind-to-node2")[0] );
+
+                function DynamicTemplate() {
+                    var self = this;
+                    self.eCheck = ko.observable();
+                    self.displayMode = ko.computed(function() {
+                        return "templateEligibility"+self.eCheck();
+                    });
+                }
+
+                ko.applyBindings( new DynamicTemplate(), $(".bind-to-node3")[0] );
+
+                /*require(["fiddlingWithTemplate"], function(novalue) {
+
+                });*/
+            } );            
+        });
+    </script>
+</body>
+
+</html>

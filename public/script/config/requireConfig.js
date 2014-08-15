@@ -18,7 +18,8 @@ require.config({
         "inlineTemplate": "module/inlineTemplate",
         "externalTemplate": "module/externalTemplate",
         "computedObservable": "module/computedObservable",
-        "observableArray": "module/observableArray"
+        "observableArray": "module/observableArray",
+        "fiddlingWithTemplate": "module/fiddlingWithTemplate"
     },
     shim: {
         "underscore": {
