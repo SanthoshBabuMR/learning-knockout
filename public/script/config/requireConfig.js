@@ -19,7 +19,8 @@ require.config({
         "externalTemplate": "module/externalTemplate",
         "computedObservable": "module/computedObservable",
         "observableArray": "module/observableArray",
-        "fiddlingWithTemplate": "module/fiddlingWithTemplate"
+        "fiddlingWithTemplate": "module/fiddlingWithTemplate",
+        "foreachLooping": "module/foreachLooping"
     },
     shim: {
         "underscore": {

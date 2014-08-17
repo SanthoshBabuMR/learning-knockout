@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Foreach Looping</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Foreach Looping</h1>
+        <div class="bind-to-node3">
+            <!-- bind-to-node3 begin-->
+            <section>
+                <ul>
+                    <li><h2>Days</h2></li>
+                    <!-- ko foreach: days-->
+                        <li data-bind="text:$data"></li>
+                    <!-- /ko -->
+                </ul>
+            </section>
+            <hr />
+            <!-- bind-to-node3 end-->
+        </div>
+        <div class="bind-to-node2">
+            <!-- bind-to-node2 begin-->
+            <section>
+                <h2>Seasons</h2> 
+                <a href="#" data-bind="click:ascOrder">Asc</a>
+                <a href="#" data-bind="click:desOrder">Des</a>
+                <a href="#" data-bind="click:defaultOrder">Default</a>
+                <div data-bind="foreach: { data: seasons, as: 'season' }">
+                    <h3 data-bind="text: season.name"></h3>
+                    <ul data-bind="foreach:{ data:months, as: 'month' }">
+                        <li><span data-bind="text:month"></span> comes in <span data-bind="text:season.name"></span></li>
+                    </ul>
+                </div>
+            </section>
+            <hr />
+            <!-- bind-to-node2 end-->
+        </div>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <section>
+                <h2>Categories</h2>
+                <div data-bind="foreach: category">
+                    <h3><span data-bind="text:name"></span> ( <a href="#" data-bind="click:$parent.removeCategory">remove Category</a> )</h3>
+                    <ul data-bind="foreach:items">
+                        <li><span data-bind="text:$data"></span> ( <a href="#" data-bind="click:function(){$root.removeItem($parent, this)}">remove item from <span data-bind="text:$parent.name"></span> category</a> )</li>
+                    </ul>
+                </div>
+                <a href="#" data-bind="click:addCategory">Add Category</a>
+            </section>
+            <hr />
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+                require(["foreachLooping"], function(novalue) {
+
+                } );
+        } );
+    </script>
+</body>
+
+</html>
