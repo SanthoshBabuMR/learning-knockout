@@ -20,7 +20,8 @@ require.config({
         "computedObservable": "module/computedObservable",
         "observableArray": "module/observableArray",
         "fiddlingWithTemplate": "module/fiddlingWithTemplate",
-        "foreachLooping": "module/foreachLooping"
+        "foreachLooping": "module/foreachLooping",
+        "ifBinding": "module/ifBinding"
     },
     shim: {
         "underscore": {

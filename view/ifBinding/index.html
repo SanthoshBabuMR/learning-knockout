@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>if Binding</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">if Binding</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <section>
+                <h2>if Binding</h2>
+                <label>2 + 2 = <input type="text" data-bind="value:compute, valueUpdate: 'keyup'"/></label>
+                <div data-bind="if: ( compute() === '4' )">That's Correct</div>
+                <div data-bind="ifnot: ( compute() === '4' )">Try Again</div>
+            </section>
+            <hr />
+            <!-- bind-to-node end-->
+        </div>
+         <div class="bind-to-node2">
+            <!-- bind-to-node2 begin-->
+            <section>
+                <h2>display contact info only if 'show' flag is enabled</h2>
+                <div class="grid-b">
+                    <div class="row">  
+                        <div class="block-a">
+                            User
+                        </div>
+                        <div class="block-b">
+                            Email
+                        </div>
+                        <div clas="block-c">
+                            Mobile
+                        </div>
+                    </div>
+                    <!-- ko foreach:persons -->
+                    <div class="row">  
+                        <div class="block-a">
+                            <span data-bind="text:name"></span>
+                        </div>
+                        <div class="block-b">
+                            <div data-bind="if: email.show">
+                                <span data-bind="text:email.val"></span>
+                            </div>                            
+                        </div>
+                        <div clas="block-c">
+                            <div data-bind="if: mobile.show">
+                                <span data-bind="text:mobile.val"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </section>
+            <hr />
+            <!-- bind-to-node2 end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+                require(["ifBinding"], function(novalue) {
+
+                } );
+        } );
+    </script>
+</body>
+
+</html>
