@@ -21,7 +21,8 @@ require.config({
         "observableArray": "module/observableArray",
         "fiddlingWithTemplate": "module/fiddlingWithTemplate",
         "foreachLooping": "module/foreachLooping",
-        "ifBinding": "module/ifBinding"
+        "ifBinding": "module/ifBinding",
+        "withBinding": "module/withBinding"
     },
     shim: {
         "underscore": {

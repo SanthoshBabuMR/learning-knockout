@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>with Binding</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">with Binding</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <section data-bind="with:Organization.Departments[0].groups.Interactive">
+                <h2>Mobility Employee ID's</h2>
+                <ul data-bind="foreach:Mobility">
+                    <li>
+                        <h3 data-bind="text:name"></h3>
+                        <ol data-bind="foreach:id">
+                            <li><span data-bind="text:$data"></span></li>
+                        </ol>
+                    </li>
+                </ul>
+                <h2>Web Employee ID's</h2>
+                <ul data-bind="foreach:Web">
+                    <li>
+                        <h3 data-bind="text:name"></h3>
+                        <ol data-bind="foreach:id">
+                            <li><span data-bind="text:$data"></span></li>
+                        </ol>
+                    </li>
+                </ul>
+                <h2>eLearning Employee ID's</h2>
+                <ul data-bind="foreach:eLearning">
+                    <li>
+                        <h3 data-bind="text:name"></h3>
+                        <ol data-bind="foreach:id">
+                            <li><span data-bind="text:$data"></span></li>
+                        </ol>
+                    </li>
+                </ul>
+                
+            </section>
+            <hr />
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+                require(["withBinding"], function(novalue) {
+
+                } );
+        } );
+    </script>
+</body>
+
+</html>
