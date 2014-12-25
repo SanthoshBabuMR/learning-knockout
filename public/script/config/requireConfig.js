@@ -23,7 +23,10 @@ require.config({
         "foreachLooping": "module/foreachLooping",
         "ifBinding": "module/ifBinding",
         "withBinding": "module/withBinding",
-		"editorPatternTest": "module/editorPatternTest"
+        "understandingKO": "module/understandingKO",
+        "JSONData": "module/JSONData",
+		"editorPattern": "module/editorPattern",
+        "myMission": "module/myMission"
     },
     shim: {
         "underscore": {

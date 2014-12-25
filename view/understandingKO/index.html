@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>understanding KO</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+
+<body>
+    <div class="doc-wrap">
+        <!-- doc-wrap begin-->
+        <a href="/">Home</a>
+        <h1 class="doc-title">Understanding KO</h1>
+        <div class="bind-to-node">
+            <!-- bind-to-node begin-->
+            <p>
+                bind node
+            </p>
+            <hr />
+            <div data-bind="with:myMission">
+                <i>click on any one of the list item</i>
+                <div data-bind="with:selected">
+                    <input type="text" data-bind="value:name" />                
+                    <input type="text" data-bind="value:risk" />
+                </div>
+                <ul data-bind="foreach: missions">
+                    <li data-bind="click:$parent.selected">
+                        <span data-bind="text:name"></span> ( <span data-bind="text:risk"></span> )
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <!-- bind-to-node end-->
+        </div>
+        <!-- doc-wrap end -->
+    </div>
+    <script src="/public/script/lib/require.js"></script>
+    <script>
+        require(["/public/script/config/requireConfig.js"], function() {
+                require(["understandingKO"], function(novalue) {
+
+                } );
+        } );
+    </script>
+</body>
+
+</html>
