@@ -22,7 +22,8 @@ require.config({
         "fiddlingWithTemplate": "module/fiddlingWithTemplate",
         "foreachLooping": "module/foreachLooping",
         "ifBinding": "module/ifBinding",
-        "withBinding": "module/withBinding"
+        "withBinding": "module/withBinding",
+		"editorPatternTest": "module/editorPatternTest"
     },
     shim: {
         "underscore": {
